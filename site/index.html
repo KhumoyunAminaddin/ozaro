@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OZARO — производство и доставка по Ташкенту</title>
+  <meta name="description" content="Собственное производство и доставка по Ташкенту. Оставьте заявку — перезвоним за 15 минут.">
+  <meta property="og:title" content="OZARO — производство и доставка по Ташкенту">
+  <meta property="og:description" content="Оставьте заявку — перезвоним за 15 минут и назовём точную цену.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="logo" href="#" data-bind="brand">OZARO</a>
+      <nav>
+        <a href="#catalog">Каталог</a>
+        <a href="#how">Как работаем</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+      <a class="phone" data-bind="phoneLink"></a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker" data-bind="city">Ташкент</p>
+      <h1 data-bind="tagline"></h1>
+      <p class="lead" data-bind="subtitle"></p>
+      <div class="cta-row">
+        <a class="btn" href="#order">Оставить заявку</a>
+        <a class="btn ghost" data-bind="tgLink" target="_blank" rel="noopener">Написать в Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap benefits" id="benefits"></section>
+
+  <section class="wrap" id="catalog">
+    <h2>Каталог</h2>
+    <div class="grid" id="products"></div>
+  </section>
+
+  <section class="wrap" id="how">
+    <h2>Как мы работаем</h2>
+    <ol class="steps" id="steps"></ol>
+  </section>
+
+  <section class="order-sec" id="order">
+    <div class="wrap order-in">
+      <div>
+        <h2>Оставьте заявку</h2>
+        <p>Перезвоним за 15 минут в рабочее время и назовём точную цену и срок. Ничего не платите до получения.</p>
+        <p class="muted" data-bind="workHours"></p>
+      </div>
+      <form id="form" novalidate>
+        <label>Имя<input name="name" autocomplete="name" required maxlength="60"></label>
+        <label>Телефон<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+998 __ ___ __ __" required maxlength="20"></label>
+        <label>Что нужно<select name="product" id="productSel"></select></label>
+        <label>Количество<input name="qty" type="number" min="1" value="1"></label>
+        <label>Район<select name="district" id="districtSel"></select></label>
+        <label class="full">Комментарий<textarea name="comment" rows="3" maxlength="500" placeholder="Размеры, цвет, удобное время звонка"></textarea></label>
+        <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn full" type="submit">Отправить заявку</button>
+        <p class="status full" id="status" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="wrap" id="faq">
+    <h2>Частые вопросы</h2>
+    <div id="faqList"></div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <span>© <span id="year"></span> <span data-bind="brand"></span> · <span data-bind="city"></span></span>
+      <span><a data-bind="phoneLink"></a> · <a data-bind="tgLink" target="_blank" rel="noopener">Telegram</a> · <a data-bind="igLink" target="_blank" rel="noopener">Instagram</a></span>
+    </div>
+  </footer>
+
+  <a class="float-tg" data-bind="tgLink" target="_blank" rel="noopener" aria-label="Telegram">✈</a>
+
+  <script src="app.js"></script>
+</body>
+</html>
