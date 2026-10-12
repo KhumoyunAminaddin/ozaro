@@ -1,58 +1,74 @@
 // =====================================================================
-//  OZARO — единственный файл, который нужно редактировать.
-//  Тексты, товары, цены, контакты и адрес приёма заявок — всё здесь.
+//  O'ZARO — единственный файл, который нужно редактировать.
+//  Тексты (ru/uz), зеркала, пакеты, цены, контакты, адрес приёма заявок.
 // =====================================================================
 window.OZARO = {
-  brand: "OZARO",
-  tagline: "Собственное производство. Доставка по Ташкенту.",
-  subtitle:
-    "Делаем на заказ под ваши размеры и пожелания. Оставьте заявку — перезвоним за 15 минут и назовём точную цену.",
+  brand: "O'ZARO",
+  phone: "+998 91 784 03 10",
+  instagram: "ozaro.uz",          // username без @
+  telegram: "",                   // username без @ (если появится Telegram-аккаунт)
+  city: { ru: "Ташкент", uz: "Toshkent" },
+  established: 2025,
 
-  // Контакты (показываются на сайте)
-  phone: "+998 90 000 00 00",          // ← ваш номер
-  telegram: "ozaro_uz",                // ← username без @ (аккаунт или бот)
-  instagram: "ozaro.uz",               // ← username без @
-  workHours: "Ежедневно 9:00–21:00",
-  city: "Ташкент",
-
-  // Адрес приёма заявок: URL веб-приложения Google Apps Script
-  // (см. docs/LAUNCH.md, шаг 2). Пока пусто — заявка уходит
-  // через Telegram с готовым текстом, так что сайт работает сразу.
+  // URL веб-приложения Google Apps Script (docs/LAUNCH.md, шаг 2).
+  // Пока пусто — заявка копируется и открывается Instagram Direct.
   leadEndpoint: "",
 
-  currency: "сум",
+  currency: "$",
+  prepayPercent: 50,
+  leadDays: "7–10",
 
-  // Каталог. Замените на свои товары; фото кладите в site/img/
-  products: [
-    { id: "p1", name: "Стандарт", desc: "Базовая модель, ходовые размеры, изготовление 1–2 дня.", price: 450000, img: "" },
-    { id: "p2", name: "Комфорт", desc: "Улучшенные материалы, выбор цвета, изготовление 2–3 дня.", price: 750000, img: "" },
-    { id: "p3", name: "Премиум", desc: "Индивидуальный проект, лучшие материалы, гарантия 2 года.", price: 1200000, img: "" },
+  mirrors: [
+    {
+      id: "gold", name: "Gold", img: "img/mirror-gold.jpg",
+      ru: { shape: "Арка: верх — овал, низ — прямоугольник", frame: "Золотая матовая рама, алюминий", size: "165 × 60 см" },
+      uz: { shape: "Arka: tepasi oval, pasti to'rtburchak", frame: "Oltin rangli mat rom, alyuminiy", size: "165 × 60 sm" },
+    },
+    {
+      id: "black", name: "Black", img: "img/mirror-black.jpg",
+      ru: { shape: "Прямоугольник, напольное с опорой", frame: "Чёрная матовая металлическая рама", size: "160 × 70 см" },
+      uz: { shape: "To'rtburchak, tayanchli pol oynasi", frame: "Qora mat metall rom", size: "160 × 70 sm" },
+    },
+    {
+      id: "blomb", name: "Blomb", img: "img/mirror-blomb.jpg",
+      ru: { shape: "Необычная волнистая форма", frame: "Без рамы, деревянный мольберт в комплекте", size: "80 × 60 см" },
+      uz: { shape: "Noodatiy to'lqinsimon shakl", frame: "Romsiz, yog'och molbert bilan", size: "80 × 60 sm" },
+    },
   ],
 
-  benefits: [
-    { t: "Своё производство", d: "Без посредников — цена ниже рынка на 15–25%." },
-    { t: "Доставка по городу", d: "Бесплатно от 1 000 000 сум, в день готовности." },
-    { t: "Оплата при получении", d: "Наличные, Click, Payme, Uzum — как удобно." },
-    { t: "Гарантия", d: "Если что-то не так — переделаем бесплатно." },
+  packages: [
+    {
+      id: "classic", price: 50, mirrors: 1,
+      ru: { name: "Классика", desc: "1 зеркало любого типа с гравировкой" },
+      uz: { name: "Klassika", desc: "Istalgan turdagi 1 ta oyna, yozuv bilan" },
+    },
+    {
+      id: "premium", price: 80, mirrors: 1, flowers: true,
+      ru: { name: "Премиальный", desc: "1 зеркало с гравировкой + цветочная композиция по вашим пожеланиям" },
+      uz: { name: "Premium", desc: "1 ta oyna yozuv bilan + istagingiz bo'yicha gul kompozitsiyasi" },
+    },
+    {
+      id: "mini", price: 90, mirrors: 2,
+      ru: { name: "Мини-ивент", desc: "2 зеркала любого типа с гравировкой" },
+      uz: { name: "Mini-ivent", desc: "Istalgan turdagi 2 ta oyna, yozuv bilan" },
+    },
+    {
+      id: "photozone", price: 200, mirrors: 2, flowers: true, light: true, featured: true,
+      ru: { name: "Идеальная фотозона", desc: "2 зеркала с гравировкой + цветочная композиция + подсветка" },
+      uz: { name: "Ideal fotozona", desc: "2 ta oyna yozuv bilan + gul kompozitsiyasi + yoritish" },
+    },
   ],
 
-  steps: [
-    "Оставляете заявку на сайте или в Telegram",
-    "Перезваниваем за 15 минут, уточняем детали и цену",
-    "Изготавливаем на своём производстве",
-    "Доставляем, вы проверяете и оплачиваете",
-  ],
-
-  faq: [
-    { q: "Сколько стоит доставка?", a: "По Ташкенту бесплатно от 1 000 000 сум, иначе 30 000 сум. В область — по договорённости." },
-    { q: "Нужна ли предоплата?", a: "Для стандартных моделей — нет. Для индивидуальных проектов — 30%." },
-    { q: "Как быстро сделаете?", a: "Обычно 1–3 дня. Точный срок назовём при звонке." },
-    { q: "Можно ли сделать по своему эскизу?", a: "Да. Пришлите фото или эскиз в Telegram — посчитаем." },
+  team: [
+    { ru: { name: "Камила", role: "Директор" }, uz: { name: "Kamila", role: "Direktor" } },
+    { ru: { name: "Мирамир", role: "Менеджер" }, uz: { name: "Miramir", role: "Menejer" } },
+    { ru: { name: "Севиль", role: "Дизайнер и флорист" }, uz: { name: "Sevil", role: "Dizayner va florist" } },
   ],
 
   districts: [
-    "Алмазар", "Бектемир", "Мирабад", "Мирзо-Улугбек", "Сергели", "Учтепа",
-    "Чиланзар", "Шайхантахур", "Юнусабад", "Яккасарай", "Яшнабад", "Янгихаёт",
-    "Ташкентская область",
+    "Алмазар / Olmazor", "Бектемир / Bektemir", "Мирабад / Mirobod", "Мирзо-Улугбек / Mirzo Ulug'bek",
+    "Сергели / Sergeli", "Учтепа / Uchtepa", "Чиланзар / Chilonzor", "Шайхантахур / Shayxontohur",
+    "Юнусабад / Yunusobod", "Яккасарай / Yakkasaroy", "Яшнабад / Yashnobod", "Янгихаёт / Yangihayot",
+    "Ташкентская обл. / Toshkent vil.",
   ],
 };

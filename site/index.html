@@ -3,85 +3,143 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OZARO — производство и доставка по Ташкенту</title>
-  <meta name="description" content="Собственное производство и доставка по Ташкенту. Оставьте заявку — перезвоним за 15 минут.">
-  <meta property="og:title" content="OZARO — производство и доставка по Ташкенту">
-  <meta property="og:description" content="Оставьте заявку — перезвоним за 15 минут и назовём точную цену.">
+  <title>O'ZARO — аренда зеркал с гравировкой в Ташкенте</title>
+  <meta name="description" content="Аренда зеркал с индивидуальной матовой гравировкой для свадеб, праздников и корпоративов в Ташкенте. Доставка и установка включены.">
+  <meta property="og:title" content="O'ZARO — аренда зеркал с гравировкой">
+  <meta property="og:description" content="Зеркала с вашей надписью для свадьбы, дня рождения или корпоратива. Ташкент, доставка и установка включены.">
+  <meta property="og:image" content="img/forest.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="config.js"></script>
 </head>
 <body>
   <header class="top">
     <div class="wrap top-in">
-      <a class="logo" href="#" data-bind="brand">OZARO</a>
+      <a class="logo" href="#">O'ZARO</a>
       <nav>
-        <a href="#catalog">Каталог</a>
-        <a href="#how">Как работаем</a>
-        <a href="#faq">Вопросы</a>
+        <a href="#mirrors" data-i18n="navMirrors"></a>
+        <a href="#packages" data-i18n="navPackages"></a>
+        <a href="#how" data-i18n="navHow"></a>
+        <a href="#about" data-i18n="navAbout"></a>
       </nav>
+      <div class="lang" role="group" aria-label="Язык / Til">
+        <button data-lang="ru">RU</button><button data-lang="uz">UZ</button>
+      </div>
       <a class="phone" data-bind="phoneLink"></a>
     </div>
   </header>
 
   <section class="hero">
-    <div class="wrap">
-      <p class="kicker" data-bind="city">Ташкент</p>
-      <h1 data-bind="tagline"></h1>
-      <p class="lead" data-bind="subtitle"></p>
-      <div class="cta-row">
-        <a class="btn" href="#order">Оставить заявку</a>
-        <a class="btn ghost" data-bind="tgLink" target="_blank" rel="noopener">Написать в Telegram</a>
+    <div class="wrap hero-in">
+      <div class="hero-text">
+        <p class="kicker" data-i18n="kicker"></p>
+        <h1>O'ZARO</h1>
+        <p class="lead" data-i18n="heroLead"></p>
+        <div class="cta-row">
+          <a class="btn" href="#order" data-i18n="ctaOrder"></a>
+          <a class="btn ghost" href="#packages" data-i18n="ctaPackages"></a>
+        </div>
+        <p class="note" data-i18n="heroNote"></p>
       </div>
+      <figure class="hero-img">
+        <span class="est">est.</span>
+        <img src="img/forest.jpg" alt="" width="362" height="607">
+        <span class="est" data-bind="established"></span>
+      </figure>
     </div>
   </section>
 
-  <section class="wrap benefits" id="benefits"></section>
-
-  <section class="wrap" id="catalog">
-    <h2>Каталог</h2>
-    <div class="grid" id="products"></div>
+  <section class="wrap sec" id="mirrors">
+    <h2 data-i18n="mirrorsTitle"></h2>
+    <p class="sub" data-i18n="mirrorsSub"></p>
+    <div class="mirrors" id="mirrorList"></div>
   </section>
 
-  <section class="wrap" id="how">
-    <h2>Как мы работаем</h2>
+  <section class="sec band" id="packages">
+    <div class="wrap">
+      <h2 data-i18n="packagesTitle"></h2>
+      <p class="sub" data-i18n="packagesSub"></p>
+      <div class="packages" id="packageList"></div>
+      <p class="buy" data-i18n="buyNote"></p>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="how">
+    <h2 data-i18n="howTitle"></h2>
     <ol class="steps" id="steps"></ol>
+    <div class="pay" data-i18n="payNote"></div>
+  </section>
+
+  <section class="sec band" id="about">
+    <div class="wrap about">
+      <div>
+        <h2 data-i18n="aboutTitle"></h2>
+        <p data-i18n="about1"></p>
+        <p data-i18n="about2"></p>
+        <p data-i18n="about3"></p>
+      </div>
+      <figure class="about-img">
+        <img src="img/you-look-cute.jpg" alt="" loading="lazy" width="559" height="622">
+        <figcaption><b>O'ZARO:</b> <span data-i18n="motto"></span></figcaption>
+      </figure>
+    </div>
+    <div class="wrap">
+      <h3 class="team-title" data-i18n="teamTitle"></h3>
+      <div class="team" id="team"></div>
+    </div>
   </section>
 
   <section class="order-sec" id="order">
     <div class="wrap order-in">
       <div>
-        <h2>Оставьте заявку</h2>
-        <p>Перезвоним за 15 минут в рабочее время и назовём точную цену и срок. Ничего не платите до получения.</p>
-        <p class="muted" data-bind="workHours"></p>
+        <h2 data-i18n="orderTitle"></h2>
+        <p data-i18n="orderLead"></p>
+        <ul class="order-facts" id="orderFacts"></ul>
+        <img class="order-img" src="img/event-mirror.jpg" alt="" loading="lazy" width="474" height="1050">
       </div>
       <form id="form" novalidate>
-        <label>Имя<input name="name" autocomplete="name" required maxlength="60"></label>
-        <label>Телефон<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+998 __ ___ __ __" required maxlength="20"></label>
-        <label>Что нужно<select name="product" id="productSel"></select></label>
-        <label>Количество<input name="qty" type="number" min="1" value="1"></label>
-        <label>Район<select name="district" id="districtSel"></select></label>
-        <label class="full">Комментарий<textarea name="comment" rows="3" maxlength="500" placeholder="Размеры, цвет, удобное время звонка"></textarea></label>
+        <label><span data-i18n="fName"></span><input name="name" autocomplete="name" required maxlength="60"></label>
+        <label><span data-i18n="fPhone"></span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+998 __ ___ __ __" required maxlength="20"></label>
+        <label><span data-i18n="fDate"></span><input name="eventDate" type="date" required></label>
+        <label><span data-i18n="fPackage"></span><select name="package" id="packageSel"></select></label>
+        <label class="full"><span data-i18n="fMirrors"></span>
+          <span class="chips" id="mirrorChips"></span>
+        </label>
+        <label class="full"><span data-i18n="fEngraving"></span><input name="engraving" maxlength="80" data-i18n-ph="fEngravingPh"></label>
+        <label><span data-i18n="fEvent"></span><select name="eventType" id="eventSel"></select></label>
+        <label><span data-i18n="fDistrict"></span><select name="district" id="districtSel"></select></label>
+        <label class="full"><span data-i18n="fComment"></span><textarea name="comment" rows="3" maxlength="500" data-i18n-ph="fCommentPh"></textarea></label>
         <input name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn full" type="submit">Отправить заявку</button>
+        <div class="total full" id="total"></div>
+        <button class="btn full" type="submit" data-i18n="fSubmit"></button>
         <p class="status full" id="status" role="status"></p>
       </form>
     </div>
   </section>
 
-  <section class="wrap" id="faq">
-    <h2>Частые вопросы</h2>
+  <section class="wrap sec" id="faq">
+    <h2 data-i18n="faqTitle"></h2>
     <div id="faqList"></div>
   </section>
 
   <footer class="foot">
     <div class="wrap foot-in">
-      <span>© <span id="year"></span> <span data-bind="brand"></span> · <span data-bind="city"></span></span>
-      <span><a data-bind="phoneLink"></a> · <a data-bind="tgLink" target="_blank" rel="noopener">Telegram</a> · <a data-bind="igLink" target="_blank" rel="noopener">Instagram</a></span>
+      <div class="foot-brand"><b>O'ZARO</b><span data-i18n="footerTag"></span></div>
+      <div class="foot-links">
+        <span data-bind="city"></span>
+        <a data-bind="phoneLink"></a>
+        <a data-bind="igLink" target="_blank" rel="noopener">Instagram @ozaro.uz</a>
+      </div>
     </div>
   </footer>
 
-  <a class="float-tg" data-bind="tgLink" target="_blank" rel="noopener" aria-label="Telegram">✈</a>
+  <a class="float-ig" data-bind="igLink" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+  </a>
 
+  <script src="i18n.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
